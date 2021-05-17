@@ -12,13 +12,13 @@ geocode(address, (error, { latitude, longitude, location }) => {
       return console.log(error);
    }
 
-   console.log(latitude, longitude, location);
+   // console.log(latitude, longitude, location);
 
-   // forecast(latitude, longitude, (error, forecastString) => {
-   //    if (error) {
-   //       return console.log(error);
-   //    }
+   forecast(latitude, longitude, (error, forecastString) => {
+      if (error) {
+         return console.log(error);
+      }
 
-   // console.log(`In ${location}, ${forecastString}`);
-   // });
+      console.log(`In ${location}, ${forecastString}`);
+   });
 });
