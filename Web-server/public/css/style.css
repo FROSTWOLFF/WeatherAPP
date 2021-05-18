@@ -1,4 +1,35 @@
-h1 {
-   color: aqua;
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   padding-top: 5vh;
+   padding-left: 10vh;
+   font-family: arial;
+}
+
+.main-content {
+   min-height: 90vh;
+   font-size: 20px;
+   color: limegreen;
+
+   display: flex;
+   flex-direction: column;
+}
+
+.header {
+   color: ghostwhite;
+   font-size: 45px;
+}
+
+.header__mainheading {
+   margin-bottom: 20px;
+}
+
+.footer {
+   color: lightsteelblue;
    font-size: 25px;
+   justify-self: flex-end;
 }
