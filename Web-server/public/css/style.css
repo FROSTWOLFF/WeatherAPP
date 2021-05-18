@@ -19,17 +19,49 @@ body {
    flex-direction: column;
 }
 
-.header {
-   color: ghostwhite;
-   font-size: 45px;
+.main-content img {
+   max-width: 200px;
 }
 
-.header__mainheading {
-   margin-bottom: 20px;
+.main-content .info {
+   margin-bottom: 30px;
+}
+
+.main-content .weatherDesc {
+   margin-top: 30px;
+   color: mediumturquoise;
+}
+
+.main-content input {
+   border: 1px solid lightgrey;
+   padding: 7px;
+   margin-left: 5px;
+}
+
+.main-content button {
+   border: 1px solid lightgrey;
+   padding: 7px;
+   cursor: pointer;
+}
+
+/* Headers and footers */
+.header {
+   position: relative;
+   color: ghostwhite;
+   font-size: 45px;
+   margin-bottom: 30px;
+}
+
+.header a {
+   margin: auto;
+   text-decoration: none;
+   margin-left: 5px;
+   font-size: 15px;
+   cursor: pointer;
+   color: powderblue;
 }
 
 .footer {
    color: lightsteelblue;
    font-size: 25px;
-   justify-self: flex-end;
 }

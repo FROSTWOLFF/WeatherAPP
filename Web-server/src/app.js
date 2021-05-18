@@ -1,3 +1,5 @@
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
@@ -9,15 +11,39 @@ const publicPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
-app.set('views', viewsPath);
 // Setting Options
+app.set('views', viewsPath);
 app.set('view engine', 'hbs');
 hbs.registerPartials(partialsPath);
 
 app.use('/static', express.static(publicPath));
 
+// Configuring routes
 app.get('/', (req, res) => {
    res.render('index', { title: 'Weather Application', info: 'Get your weather information through the address bar.' });
+});
+
+app.get('/weather', (req, res) => {
+   if (!req.query.address) {
+      return res.send({ error: 'Please provide an address' });
+   }
+
+   geocode(req.query.address, (error, { latitude, longitude, location }) => {
+      if (error) {
+         return res.send({ error });
+      }
+      forecast(latitude, longitude, (error, forecastString) => {
+         if (error) {
+            return res.send({ error });
+         }
+
+         res.send({
+            forecast: forecastString,
+            address: req.query.address,
+            location,
+         });
+      });
+   });
 });
 
 app.get('/about', (req, res) => {

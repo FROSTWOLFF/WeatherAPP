@@ -9,9 +9,19 @@
    <body>
       <div class="main-content">
          {{> header}}
-         {{info}}
+         <p class="info">{{info}}</p>
+
+         <form class="weatherForm">
+            <label for="location">Enter an address : </label>
+            <input type="text" name="location" placeholder="Location" id="location">
+            <button>Submit</button>
+         </form>
+
+         <p class="weatherDesc"></p>
+
       </div>
       {{> footer}}
+      <script src="/static/js/app.js"></script>
       
    </body>
 </html>
